@@ -1,5 +1,5 @@
 
-import Expense from './components/Expense'
+import Expense from './components/Expense';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <Expense expenses = {expenses}></Expense>
+        <Expense expenses = {expenses}></Expense>
   );
 }
 
