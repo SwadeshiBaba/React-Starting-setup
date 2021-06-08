@@ -13,9 +13,6 @@ const ExpenseForm = (props) => {
 
     const titleChangeHandler = (event)=> {
         setEnteredTitle(event.target.value);
-        /*setUserInput((prevState)=>{
-            return {...prevState, enteredTitle: event.target.value};
-        });*/
     };
 
     const ammountChangeHandler = (event)=> {
@@ -44,7 +41,7 @@ const ExpenseForm = (props) => {
         <div className= 'new-expense__controls'>
             <div className= 'new-expense__control'>
                 <label>Title</label>
-                <input type='text' value = {enteredTitle} onChange={titleChangeHandler}></input>
+                <input type='text' value={enteredTitle} onChange={titleChangeHandler}></input>
             </div>
             <div className= 'new-expense__control'>
                 <label>Amount</label>
