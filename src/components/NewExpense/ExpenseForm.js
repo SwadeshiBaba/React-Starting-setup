@@ -14,7 +14,8 @@ const FormControl = styled.div`
       font-weight: bold;
       margin-bottom: 0.5rem;
       display: block;
-      color : ${props=> props.invalid ? 'red' : 'black'};        }
+      color : ${props=> (props.invalid ? 'red' : 'black')};
+      }
 
     & input {
       font: inherit;
@@ -23,8 +24,8 @@ const FormControl = styled.div`
       border: 1px solid #ccc;
       width: 20rem;
       max-width: 100%;
-      border-color : ${props => props.invalid ? 'red' : '#ccc'};
-      background : ${props => props.invalid ? 'pink' : '#ccc'};
+      border-color : ${props => (props.invalid ? 'red' : '#ccc')};
+      background : ${props => (props.invalid ? 'pink' : '#ccc')};
     }
 `;
 
