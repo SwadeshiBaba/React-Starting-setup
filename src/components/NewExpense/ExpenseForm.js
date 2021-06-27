@@ -1,37 +1,8 @@
 import React from 'react';
 import useState from 'react-usestateref';
-import styled from 'styled-components';
+import styles from './ExpenseForm.module.css';
 
-const FormControls = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    text-align: left;
-`;
-const FormControl = styled.div`
-    & label {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      display: block;
-      color : ${props=> (props.invalid ? 'red' : 'black')};
-      }
 
-    & input {
-      font: inherit;
-      padding: 0.5rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      width: 20rem;
-      max-width: 100%;
-      border-color : ${props => (props.invalid ? 'red' : '#ccc')};
-      background : ${props => (props.invalid ? 'pink' : '#ccc')};
-    }
-`;
-
-const NewExpenseActions = styled.div`
-    text-align: right;
-`;
 const ExpenseForm = (props) => {
 
     const [enteredTitle, setEnteredTitle,enteredTitleRef] = useState('');
@@ -94,24 +65,24 @@ const ExpenseForm = (props) => {
 
 return (
     <form onSubmit = {submitHandler}>
-        <FormControls>
-            <FormControl invalid={!isTitleValid}>
+        <div className = {styles['new-expense__controls']}>
+            <div className = {`${styles['new-expense__control']} ${!isTitleValid && styles.invalid}`}>
                 <label>Title</label>
                 <input type='text' value={enteredTitle} onChange={titleChangeHandler}></input>
-            </FormControl>
-            <FormControl invalid={!isAmountValid}>
+            </div>
+            <div className = {`${styles['new-expense__control']} ${!isAmountValid && styles.invalid}`}>
                 <label>Amount</label>
                 <input type='number' min='0.01' step='0.01' value={enteredAmount} onChange={amountChangeHandler}></input>
-            </FormControl>
-            <FormControl invalid={!isDateValid}>
+            </div>
+            <div className = {`${styles['new-expense__control']} ${!isDateValid && styles.invalid}`}>
                 <label>Date</label>
                 <input type='date' min='2019-01-01' max = '2022-12-31' value={enteredDate} onChange = {dateChangeHandler}></input>
-            </FormControl>
-        </FormControls>
-        <NewExpenseActions>
+            </div>
+        </div>
+        <div>
             <button type='button' onClick = {props.onCancel}>Cancel</button>
             <button type='submit'>Add Expense</button>
-        </NewExpenseActions>
+        </div>
     </form>
     );
 };
