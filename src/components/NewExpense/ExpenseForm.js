@@ -34,7 +34,6 @@ const NewExpenseActions = styled.div`
 `;
 const ExpenseForm = (props) => {
 
-
     const [enteredTitle, setEnteredTitle,enteredTitleRef] = useState('');
     const [enteredAmount, setEnteredAmount,enteredAmountRef] = useState('');
     const [enteredDate, setEnteredDate,enteredDateRef] = useState('');
